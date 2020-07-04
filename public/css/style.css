@@ -1,18 +1,19 @@
 h1, h3
 {
-    text-align:center;
+    text-align: center;
 }
 h3
 {
-    background-color:black;
-    color:white;
+    background-color: black;
+    color: white;
     font-size:0.9em;
-    margin-bottom:0px;
+    margin-bottom:0;
 }
 .news p
 {
     background-color:#CCCCCC;
-    margin-top:0px;
+    margin-top:0;
+    font-family: Verdana, serif;
 }
 .news
 {
@@ -23,7 +24,7 @@ h3
 a
 {
     text-decoration: none;
-    color: blue;
+    color: yellow;
 }
 .commentaire
 {
