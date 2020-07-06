@@ -1,0 +1,34 @@
+**********************
+
+* RDV du 02/07/2020: *
+
+**********************
+            AVANT:
+            ======
+Recherche sur GitHub afin de lancer le début du versioning du projet.
+30/06/2020: Création de la "maquette papier". Si cela peut permettre de décoincer les idées, c'est cool... À terminer
+01/07/2020: J'aurais bien fait un commit mais bon, il faudrait que cela fontionne, quoi >_<! Faut remettre les 2 fetch en place.
+02/07/2020: On va tenter de... eh bé en fait non -_-,
+
+            PENDANT:
+            ========
+
+Consultation de la maquette
+la page d'accueil est OK, bien vu la liste des épisodes chronologiques et du dernier article.
+
+Iscription/connexion pareil: être membre permettra de commenter ET de signaler (cela évitera les bots)
+/!\ ne pas oublier de bien signaler les commentaires signalés et vérifiés (avec des icones Warning et des Checks, par exemple)
+(ne pas oublier la notion de soft delete et de hard delete)
+Ah, et pour lire les articles: il est plus judicieux de mettre des flèches "articles précédents et articles suivants"... en bas de la page, voyons!
+
+
+
+https://www.facture.net/ Super CRM pour facturer, etc. à utiliser plutôt que Zoho
+
+            APRÈS:
+            ======
+Organisation à établir:
+Méthode Pomodoro (séquence de 25 minutes, par exemple) avec des objectifs méga clairs
+Séquencer à mort! (github peut aider)
+Sur Github, pourquoi pas utiliser la rubrique Issues pour faire une todo liste.
+Et on y arrivera, putain.

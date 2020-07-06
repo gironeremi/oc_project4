@@ -1,0 +1,72 @@
+Rdv du 23/04/2020:
+=====================================================================
+=====================================================================
+1. Avancées de l’étudiant sur son projet depuis la dernière session: P3 validé
+
+2. Principaux sujets abordés pendant la session, obstacles à surmonter (le cas échéant), et actions nécessaires pour atteindre ces objectifs: présentation du projet, détail de l'énoncé (version OC et version mentor)
+
+3. Objectifs 'SMART' fixés par l'étudiant et le mentor pour la prochaine session:
+faire les cours PHP/Mysql, MVC et début de POO
+faire le dernier TP du cours MVC nickel chrome pour le réutiliser sur le projet
+=====================================================================
+=====================================================================
+P4; CRUD, il manque le L de List.
+on peut ajouterdes Posts, 
+
+ajout:
+protégé par mot de passe: l'énoncé est bof.
+on va faire mieux: gestion des utilisateurs.
+
+->ajouter boutons inscription/connexion (c'est la base, frère)
+créer des comptes user
+et un compte Admin pour l'auteur.
+(un flag "isadmin=1 ou isadmin=0")
+
+gestion des guest: non-connectés, peuvent lire les posts et les commentaires seulement
+Signaler : soit pour tout le monde, soit pour les users
+
+***Front-end: 2 pages, voire 3
+-accueil
+-liste des derniers billets (possible de rajouter sur la page d'accueil)
+(liste de pagination possible) (dans controller/articles)
+-lecture d'un billet (les commentaires sont ici) (controller/comments)
++*** 2 pages  pour la gestion des utilisateurs ( à mettre dans controller/users)
+
+****Back-office:
+-une page d'accueil avec la liste des commentaires signalés (et des boutons pour les valider ou supprimer)
+***CRUD des posts:
+	-ajout un article
+	-liste des articles (mais pas sous la même forme, plus d'infos utiles que le page du front, les boutons avec les actions: éditer, supprimer, aperçu, voir les commentaires de cet article)
+
+techniquement: MVRC (modèle controler(1page?) vue rooter)
+modèle 2 façons : soit il affiche, 
+(hydratation et entité/manager)
+
+        les cours:
+        ==========
+
+1er la base
+-----------
+
+2ème MVC en PHP: nickel aussi
+-----------------------------
+
+TP de la fin: fort intéressant. Servira de base pour le projet.
+
+3ème: cours compliqué
+Partie 1 nickel
+Partie 2 on laisse tomber sauf Design pattern & exception, closure, et les objets en profondeur,
+Partie 3: on s'en cogne
+
+(PSR7 = norme php (request/response))
+les ressources:
+Poo en PHP: un blog en POO mais ATTENTION il utilise des trucs externes! à ne pas forcément utiliser dans ton projet. mais à lire.
+
+***faire autoload de Komposer (chapitre9)
+auto import des librairies possibles, très intéressant.
+
+re-les cours:
+bootstrap: forcément, très intéressant.
+5ème cours Indispensable:
+faire commit régulier! c'est-à-dire à chaque fonctionnalité.
+1er commit: le tp du 2ème cours.

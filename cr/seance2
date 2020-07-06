@@ -1,0 +1,25 @@
+Rdv du 22/05/2020:
+==================
+
+    On a foutu quoi, bordel?
+    ------------------------
+Dimanche: gros bossage, on a fait le blog selon de TP à Mathieu:
+* Création des tables
+* Ajout d'articles
+* Ajout de commentaires
+* Affichage de tout cela
+* ET possibilité pour tous les visiteurs de commenter.
+* Vu des tutos videos sur php de GrafikArt, c'est assez stylé!
+
+    En cours: possibilité d'inscription, login et logout
+    ----------------------------------------------------
+
+Fait:
+Création de deux tables : membres et groupes
+Création des pages
+Formulaires de saisie
+
+En cours:
+écriture du php avec les conditions et tout et tout.
+
+À faire: ouf... tout plein de trucs.
