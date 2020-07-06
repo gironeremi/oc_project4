@@ -1,0 +1,88 @@
+**********************
+* RDV du x/x/2020: *
+**********************
+Séance n° X (j'en pleure encore ;_;)
+
+
+            AVANT:
+
+Ce qui a été fait:
+==================
+
+Pratique active:
+----------------
+Lecture du cours MVC
+2nde lecture du cours MVC avec mise en application
+-> Création du squelette du projet4
+Tout début de lecture du cours POO
+
+À la cool:
+----------
++ réussite du cours "Veille Technologique"
+
++ lecture au coucher du bouquin PHP7 Cours et corrigés (pour bien faire rentrer dans mon crâne)
++ lecture de vidéos sur PHP Poo (Grafikart + Nouvelle Techno)
+
++ OpenClassrooms qui m'appelle pour rien
+
+
+            PENDANT:
+            ========
+Choses à corriger
+-----------------
+*1er: les fetch à modifier
+Utile: pratique pour les connexions: créer un hash en Session (pratique pour renforcer la sécurité)
+* ATTENTION
+faut bouger le "while fetch" qui est dans la Vue
+et le foutre au bon endroit: dans le MODÈLE /*euh c'est sûr ça?? Je n'ai pas mal noté?!*/
+(fetch_all (lister all) ou fetch)
+et après forEach
+
+* 2ème: index.php
+TODO transformer les if en cascade par un switch
+d'abord vérifier par un clean_var
+PUIS faire un switch dessus (afin de vérifier le bordel).
+
+* du véritable routing
+TODO: faire du routing. Un routeur, ça ROUTE! AUCUN $_GET OU $_POST!
+En vrai, il ne devrait faire que ça. (ex: l'opératrice du téléphone)
+Ça de vrait passer dans le controller
+Comment faire: de la Poo, mon grand! Avec des méthodes
+---------------
+---------------
+En routing, Fred utilise SimpleRouteur (une librairie de routing).
+Utile: avoir un controller par "sujet" (ex:blog, articles, forum, etc.)
+
+* Préparer les fonctionnalités du site: Qu'est-ce qu'on va faire sur le site?
+TODO Coucher "sur papier" le projet
+(ex: le bouton "Signaler". à gérer dans le front et le back. est-il à archiver)
+((le différencier de flag))
+faire une valeur "status" (avec plusieurs possibilités).
+***********
+
+(ex: Soft Delete et Hard Delete, à distinguer)
+enregistrement orphelin
+clé étrangère, TRÈS importante (chaque table a son moteur. Il faut utliser InnoDB pour gérer les clés étrangères)
+
+
+            APRÈS:
+            ======
+
+1. Avancées de l’étudiant sur son projet depuis la dernière session
+cours fait, terminé et compris
+
+2. Principaux sujets abordés pendant la session, obstacles à surmonter (le cas échéant), et actions nécessaires pour atteindre ces objectifs
+check du code du TP du cours MVC + liste des corrections à y apporter
+préparation du projet
+
+3. Objectifs 'SMART' fixés par l'étudiant et le mentor pour la prochaine session
+corriger le tp MVC comme indiqué
+faire la liste des pages et des fonctionnalités à développer sur chaque page
+1ere partie du cours POO
+
+*******************
+*******************
+BROUILLON
+les  choses à corriger
+1. 21/06/2020: les fetch ont dégagé des vues! Elles sont désormais dans le modèle.
+2.
