@@ -1,12 +1,10 @@
 <?php $title = 'Mon blog'; ?>
 
 <?php ob_start(); ?>
-    <h1>Mon super blog !</h1>
+    <h1>Mon blog d'enfer !</h1>
     <p>Derniers billets du blog :</p>
-
-
 <?php
-while ($data = $posts->fetch())
+foreach ($posts as $data)
 {
     ?>
     <div class="news">
@@ -23,7 +21,7 @@ while ($data = $posts->fetch())
     </div>
     <?php
 }
-$posts->closeCursor();
+//$posts->closeCursor();
 ?>
 <?php $content = ob_get_clean(); ?>
 
