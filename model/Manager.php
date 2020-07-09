@@ -4,7 +4,7 @@ class Manager
 {
     protected function dbConnect()
     {
-        $db= new \PDO('mysql:host=localhost;port=3308;dbname=p4alpha', 'root', '', array(\PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION));
+        $db= new \PDO('mysql:host=localhost;port=3308;dbname=p4', 'root', '', array(\PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION));
         return $db;
     }
 }

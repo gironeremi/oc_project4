@@ -13,7 +13,7 @@ try {
             post();
             break;
         case 'addComment':
-            addComment($postId, $author, $comment);
+            addComment();
             break;
         default:
             listPosts();

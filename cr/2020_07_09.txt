@@ -1,0 +1,23 @@
+**********************
+
+* RDV du 09/07/2020: *
+
+**********************
+
+            AVANT:
+            ======
+Installation et mise en place du projet sur Github
+Restauration d'une sauvegarde "manuelle" précédente
+Lecture de la doc Php Poo
+
+
+            PENDANT:
+            ========
+Questions:
+==========
+Il est utile le closeCursor() dans listPostsView.php?
+
+
+
+            APRÈS:
+            ======
