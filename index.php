@@ -17,6 +17,8 @@ try {
         case 'addComment':
             addComment();
             break;
+        case 'welcome':
+            require('view/frontend/welcome.php');
         default:
             listPosts();
     }

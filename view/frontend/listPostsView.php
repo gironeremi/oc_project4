@@ -1,23 +1,22 @@
 <?php $title = 'Mon blog'; ?>
 
 <?php ob_start(); ?>
-    <h1>Mon blog d'enfer !</h1>
+
     <p>Derniers billets du blog :</p>
 <?php
-foreach ($posts as $data)
+foreach ($posts as $post)
 {
     ?>
-    <div class="news">
-        <h3>
-            <?= htmlspecialchars($data['title']) ?>
-            <em>le <?= $data['creation_date_fr'] ?></em>
-        </h3>
-
-        <p>
-            <?= nl2br(htmlspecialchars($data['content'])) ?>
-            <br />
-            <em><a href="../../index.php?action=post&id=<?= $data['id'] ?>">Commentaires</a></em>
-        </p>
+    <div class="card">
+        <div class="card-header">
+            <h2><?= htmlspecialchars($post['title']) ?></h2>
+        </div>
+        <div class="card-body">
+            <p><?= nl2br(htmlspecialchars($post['content'])) ?></p>
+        </div>
+        <div ="card-footer">
+            <a href="../../index.php?action=post&id=<?= $post['id'] ?>">Commentaires</a>
+        </div>
     </div>
     <?php
 }
