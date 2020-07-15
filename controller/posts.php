@@ -5,3 +5,6 @@ function listPosts() {
     $posts = $postManager->getPosts();
     require('view/frontend/listPostsView.php');
 }
+/*
+ * fonction qui affiche les débuts d'articles,
+ */
