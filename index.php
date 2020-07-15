@@ -1,6 +1,8 @@
 <?php
-require('controller/frontend.php');
-$action ="";
+require('controller/controller.php');
+require('controller/posts.php');
+require('controller/comments.php');
+$action = "";
 if (isset($_GET['action'])) {
     $action = cleanVar($_GET['action']);
 }
@@ -15,6 +17,8 @@ try {
         case 'addComment':
             addComment();
             break;
+        case 'welcome':
+            require('view/frontend/welcome.php');
         default:
             listPosts();
     }

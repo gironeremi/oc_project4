@@ -9,15 +9,32 @@
 Installation et mise en place du projet sur Github
 Restauration d'une sauvegarde "manuelle" précédente
 Lecture de la doc Php Poo
+PAS FAIT: découper le controller/frontend.php et en faire des classes
+
 
 
             PENDANT:
             ========
-Questions:
-==========
-Il est utile le closeCursor() dans listPostsView.php?
-
-
 
             APRÈS:
             ======
+Prochaines étapes: découper ce controller en 3 parties et en faire des fichiers "objet": chapters.php, comments.php et users.php avec les méthodes dedans.
+
+Ensuite, deux possibilités:
+ - soit faire toutes les briques techniques et les implémenter au fur et à mesure dans les pages
+ - soit un truc un peu plus visuel: faire les pages html en brut, et réaliser les briques techniques au fur et à mesure.
+ A chaque nouvelle brique, on la met en place. Ce sera sans doute mieux pour nous, un truc visuel.
+ *********
+ ***********
+ ******
+ 1. Avancées de l’étudiant sur son projet depuis la dernière session
+ Rémi a repris le projet de 0 (version fin de tp cours MVC) afin de le mettre sur github et d'avancer par étapes
+
+ 2. Principaux sujets abordés pendant la session, obstacles à surmonter (le cas échéant), et actions nécessaires pour atteindre ces objectifs
+ validation de la méthode de dev de Rémi
+ questions sur public/private/protected
+
+ 3. Objectifs 'SMART' fixés par l'étudiant et le mentor pour la prochaine session
+ avancer sur le projet !!!!!
+ faire les traitements sur le(s) controlleur(s) ! split/passage en objet
+ voir comment faire le design

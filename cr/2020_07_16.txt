@@ -1,0 +1,18 @@
+**********************
+
+* RDV du x/x/2020: *
+
+**********************
+
+
+
+            AVANT:
+            ======
+Raccourci clavier: Ctrl+ double click sur une méthode te renvoie sur le fichier correspondant!
+substr():
+
+            PENDANT:
+            ========
+
+            APRÈS:
+            ======

@@ -1,18 +1,15 @@
 <?php $title = htmlspecialchars($post['title']); ?>
 
 <?php ob_start(); ?>
-<h1>Mon blog !</h1>
-<p><a href="../../index.php">Retour à la liste des billets</a></p>
+<p><a href="../../index.php">Retour à la liste des épisodes</a></p>
 
-<div class="news">
-    <h3>
-        <?= htmlspecialchars($post['title']) ?>
-        <em>le <?= $post['creation_date_fr'] ?></em>
-    </h3>
-
-    <p>
-        <?= nl2br(htmlspecialchars($post['content'])) ?>
-    </p>
+<div class="card">
+    <div class="card-header">
+        <h2><?= htmlspecialchars($post['title']) ?></h2>
+    </div>
+    <div class="card-body">
+        <p><?= nl2br(htmlspecialchars($post['content'])) ?></p>
+    </div>
 </div>
 
 <h2>Commentaires</h2>
