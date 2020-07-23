@@ -1,0 +1,19 @@
+**********************
+
+* RDV du 23/07/2020: *
+
+**********************
+
+
+
+            AVANT:
+            ======
+Github: clarification des tâches à faire
+Tenté de regarder Composer pour gérer l'autoload
+Voilà, en fait c'est à peu près tout.
+
+            PENDANT:
+            ========
+
+            APRÈS:
+            ======

@@ -1,7 +1,7 @@
 <?php
-require('controller/controller.php');
-require('controller/posts.php');
-require('controller/comments.php');
+require('App/controller/Controller.php');
+require('App/controller/PostsController.php');
+require('App/controller/CommentsController.php');
 $action = "";
 if (isset($_GET['action'])) {
     $action = cleanVar($_GET['action']);
