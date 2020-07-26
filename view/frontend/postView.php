@@ -5,10 +5,10 @@
 
 <div class="card">
     <div class="card-header">
-        <h2><?= htmlspecialchars($post['title']) ?></h2>
+        <h2><?= $post['title'] ?></h2>
     </div>
     <div class="card-body">
-        <p><?= nl2br(htmlspecialchars($post['content'])) ?></p>
+        <p><?= nl2br($post['content']) ?></p>
     </div>
 </div>
 
@@ -30,8 +30,8 @@
 foreach ($comments as $comment)
 {
     ?>
-    <p><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['comment_date_fr'] ?></p>
-    <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
+    <p><strong><?= $comment['author'] ?></strong> le <?= $comment['comment_date_fr'] ?></p>
+    <p><?= nl2br($comment['comment']) ?></p>
     <?php
 }
 ?>

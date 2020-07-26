@@ -7,6 +7,7 @@
     </ul>
 </nav>
 <header class="jumbotron text-center">
-    <h1>Jean FORTEROCHE<br/>Billet simple pour l'Alaska</h1>
+    <h1>Jean FORTEROCHE</h1>
+    <h2>Billet simple pour l'Alaska</h2>
     <div><img src="../../public/images/hero.jpg" class="img-fluid" alt="paysage d'Alaska" /></div>
 </header>

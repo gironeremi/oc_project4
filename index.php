@@ -1,7 +1,6 @@
 <?php
-require('controller/controller.php');
-require('controller/posts.php');
-require('controller/comments.php');
+require 'vendor/autoload.php';
+use App\Controller\Controller, App\Controller\CommentsController, App\Controller\PostsController;
 $action = "";
 if (isset($_GET['action'])) {
     $action = cleanVar($_GET['action']);
@@ -17,8 +16,6 @@ try {
         case 'addComment':
             addComment();
             break;
-        case 'welcome':
-            require('view/frontend/welcome.php');
         default:
             listPosts();
     }
