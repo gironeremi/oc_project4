@@ -1,5 +1,6 @@
 <?php
-require_once('../model/CommentManager.php');
+namespace App\;
+use App\Model\CommentManager;
 class CommentsController extends Controller
 {
     public function addComment()
@@ -9,7 +10,7 @@ class CommentsController extends Controller
         $comment = cleanVar($_POST['comment']);
         if ((isset($postId)) && $postId > 0) {
             if (!empty($author) && !empty($comment)) {
-                $commentManager = new OpenClassrooms\Blog\Model\CommentManager();
+                $commentManager = new CommentManager();
                 $affectedLines = $commentManager->postComment($postId, $author, $comment);
                 if ($affectedLines === false) {
                     throw new Exception('Impossible d\'ajouter le commentaire.');

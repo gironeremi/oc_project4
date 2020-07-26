@@ -1,5 +1,5 @@
 <?php
-namespace OpenClassrooms\Blog\Model;
+namespace App\;
 require_once('Manager.php');
 class CommentManager extends Manager
 {
