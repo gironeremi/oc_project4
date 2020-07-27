@@ -1,5 +1,5 @@
 <?php
-namespace App\;
+namespace App\Controller;
 use App\Model\CommentManager;
 class CommentsController extends Controller
 {

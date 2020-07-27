@@ -1,5 +1,5 @@
 <?php
-namespace App\;
+namespace App\Controller;
 use App\Model\PostManager, App\Model\CommentManager;
 class Controller
 {

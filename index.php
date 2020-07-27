@@ -2,22 +2,25 @@
 require 'vendor/autoload.php';
 use App\Controller\Controller, App\Controller\CommentsController, App\Controller\PostsController;
 $action = "";
+$controller = new Controller();
+$commentsController = new CommentsController();
+$postsController = new PostsController();
 if (isset($_GET['action'])) {
-    $action = cleanVar($_GET['action']);
+    $action = $controller->cleanVar($_GET['action']);
 }
 try {
     switch ($action) {
         case 'listPosts':
-            listPosts();
+            $postsController->listPosts();
             break;
         case 'post':
-            post();
+            $controller->post();
             break;
         case 'addComment':
-            addComment();
+            $commentsController->addComment();
             break;
         default:
-            listPosts();
+            $postsController->listPosts();
     }
 }
 catch(Exception $e) {

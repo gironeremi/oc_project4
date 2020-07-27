@@ -1,6 +1,5 @@
 <?php
-namespace App\;
-require_once('Manager.php');
+namespace App\Model;
 class CommentManager extends Manager
 {
     public function getComments($postId)

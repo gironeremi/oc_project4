@@ -13,7 +13,7 @@ foreach ($posts as $post)
             <h3>Épisode <?= $post['id'] ?> : <?= $post['title'] ?></h3>
         </div>
         <div class="card-body">
-            <p><?= substr(nl2br($post['content'])), 0, 250) ?>...</p>
+            <p><?= substr(nl2br($post['content']), 0, 250) ?>...</p>
         </div>
         <div ="card-footer bg-light">
             <a href="../../index.php?action=post&id=<?= $post['id'] ?>" class="btn btn-primary btn-block" role="button">Lire la suite</a>

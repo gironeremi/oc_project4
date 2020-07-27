@@ -1,6 +1,5 @@
 <?php
-namespace App\;
-require_once('Manager.php');
+namespace App\Model;
 class PostManager extends Manager
 {
     public function getPosts()

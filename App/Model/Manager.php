@@ -1,5 +1,5 @@
 <?php
-namespace App\;
+namespace App\Model;
 class Manager
 {
 //ici mettre un require pour chercher mes identifiants.
