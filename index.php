@@ -1,6 +1,9 @@
 <?php
 require 'vendor/autoload.php';
-use App\Controller\Controller, App\Controller\CommentsController, App\Controller\PostsController;
+use App\Controller\Controller;
+use App\Controller\CommentsController;
+use App\Controller\PostsController;
+
 $action = "";
 $controller = new Controller();
 $commentsController = new CommentsController();
@@ -19,11 +22,13 @@ try {
         case 'addComment':
             $commentsController->addComment();
             break;
+        case 'admin':
+            $controller->admin();
         default:
             $postsController->listPosts();
     }
 }
 catch(Exception $e) {
-    echo 'Erreur: ' . $e->getMessage();
+    $error = $e->getMessage();
     require('view/errorView.php');
 }

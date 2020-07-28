@@ -7,6 +7,8 @@ class PostsController extends Controller
     {
         $postManager = new PostManager();
         $posts = $postManager->getPosts();
+        //ici on pourrait rajouter une fonction qui ne renvoie qu'une partie du chapitre, coupé correctement.
         require('view/frontend/listPostsView.php');
     }
 }
+//TODO faire une getLastPost() qui récupère le dernier article seulement

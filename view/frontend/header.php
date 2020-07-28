@@ -1,9 +1,9 @@
 <nav class="navbar bg-light sticky-top">
     <ul class="nav">
-        <li class="navbar-brand">Jean Forteroche</li>
-        <li class="nav nav-item"><a class="nav-link">Un</a></li>
-        <li class="nav nav-item"><a class="nav-link">Deux</a></li>
-        <li class="nav nav-item"><a class="nav-link">Huit</a></li>
+        <li class="navbar-brand"><a href="index.php">Jean Forteroche</a></li>
+        <li class="nav nav-item"><a class="nav-link">Nav Link</a></li>
+        <li class="nav nav-item"><a class="nav-link">Nav Link</a></li>
+        <li class="nav nav-item"><a class="nav-link">Admin</a></li>
     </ul>
 </nav>
 <header class="jumbotron text-center">
