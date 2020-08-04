@@ -10,5 +10,8 @@ class PostsController extends Controller
         //ici on pourrait rajouter une fonction qui ne renvoie qu'une partie du chapitre, coupé correctement.
         require('view/frontend/listPostsView.php');
     }
+    public function getPostShort()
+    {
+        //ici la méthode permettant de récupérer les articles raccourcis correctement.
+    }
 }
-//TODO faire une getLastPost() qui récupère le dernier article seulement

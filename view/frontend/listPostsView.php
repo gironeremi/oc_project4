@@ -14,7 +14,11 @@
                 <h3><?= $post['title'] ?></h3>
             </div>
             <div class="card-body">
-                <p><?= mb_substr(nl2br($post['content']), 0, 250) ?>...</p>
+                <p><?php
+                    //TODO envoyer tout cela ailleurs (dans le modèle ou le controller, à réchéflir)
+                    $contentExtract = mb_substr(nl2br($post['content']), 0, 180);
+                    $lastSpace = mb_strrpos($contentExtract,' ', 0);
+                    echo mb_substr(nl2br($post['content']), 0, $lastSpace) ?>...</p>
             </div>
             <div ="card-footer bg-light">
                 <a href="../../index.php?action=post&id=<?= $post['id'] ?>" class="btn btn-primary btn-block" role="button">Lire la suite</a>

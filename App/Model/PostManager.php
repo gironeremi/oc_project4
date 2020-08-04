@@ -17,4 +17,3 @@ class PostManager extends Manager
         return $post;
     }
 }
-//TODO rajouter une fonction getLastPost()

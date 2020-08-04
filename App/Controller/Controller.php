@@ -12,7 +12,7 @@ class Controller
             $comments = $commentManager->getComments($_GET['id']);
             require('view/frontend/postView.php');
         } else {
-            throw new Exception('acucun identifiant de billet envoyé.');
+            throw new Exception('aucun identifiant de billet envoyé.');
         }
     }
 
