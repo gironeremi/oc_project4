@@ -5,8 +5,8 @@ class CommentsController extends Controller
 {
     public function addComment()
     {
-        $postId = cleanVar($_GET['id']);
-        $author = cleanVar($_POST['author']);
+        $postId = cleanVar($_GET['post_id']);
+        $author = cleanVar($_POST['member_id']);
         $comment = cleanVar($_POST['comment']);
         if ((isset($postId)) && $postId > 0) {
             if (!empty($author) && !empty($comment)) {

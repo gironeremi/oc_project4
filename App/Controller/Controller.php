@@ -5,11 +5,11 @@ class Controller
 {
     public function post()
     {
-        if (isset($_GET['id']) && $_GET['id'] > 0) {
+        if (isset($_GET['post_id']) && $_GET['post_id'] > 0) {
             $postManager = new PostManager();
             $commentManager = new CommentManager();
-            $post = $postManager->getPost($_GET['id']);
-            $comments = $commentManager->getComments($_GET['id']);
+            $post = $postManager->getPost($_GET['post_id']);
+            $comments = $commentManager->getComments($_GET['post_id']);
             require('View/frontend/postView.php');
         } else {
             throw new Exception('aucun identifiant de billet envoyé.');

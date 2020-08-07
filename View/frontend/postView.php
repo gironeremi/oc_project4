@@ -13,7 +13,7 @@
 </div>
 
 <h2>Commentaires</h2>
-<form action="index.php?action=addComment&id=<?= $post['id'] ?>" method="post">
+<form action="index.php?action=addComment&id=<?= $post['post_id'] ?>" method="post">
     <div>
         <label for="author">Auteur</label><br />
         <input type="text" id="author" name="author" />
@@ -30,7 +30,7 @@
 foreach ($comments as $comment)
 {
     ?>
-    <p><strong><?= $comment['author'] ?></strong> le <?= $comment['comment_date_fr'] ?></p>
+    <p><strong><?= $comment['member_id'] ?></strong> le <?= $comment['comment_date_fr'] ?></p>
     <p><?= nl2br($comment['comment']) ?></p>
     <?php
 }

@@ -18,15 +18,12 @@
             <div class="card-body">
                 <p>
                     <?php
-                        //TODO envoyer tout cela ailleurs (dans le controller, à réchéflir)
-                        $contentExtract = mb_substr(nl2br($post['content']), 0, 180);
-                        $lastSpace = mb_strrpos($contentExtract,' ', 0);
-                        echo mb_substr(nl2br($post['content']), 0, $lastSpace)
-                    ?>...
+                        $this->getPostShort($post['content']);
+                    ?>
                 </p>
             </div>
             <div ="card-footer bg-light">
-                <a href="../../index.php?action=post&id=<?= $post['id'] ?>" class="btn btn-primary btn-block" role="button">Lire la suite</a>
+                <a href="../../index.php?action=post&post_id=<?= $post['post_id'] ?>" class="btn btn-primary btn-block" role="button">Lire la suite</a>
             </div>
         </div>
         <?php
@@ -34,6 +31,5 @@
         ?>
     </div>
 </div>
-<?php $content = ob_get_clean(); ?>
-
-<?php require('template.php'); ?>
+<?php $content = ob_get_clean();
+require('template.php'); ?>
