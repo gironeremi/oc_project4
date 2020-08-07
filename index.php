@@ -24,11 +24,12 @@ try {
             break;
         case 'admin':
             $controller->admin();
+            break;
         default:
             $postsController->listPosts();
     }
 }
 catch(Exception $e) {
     $error = $e->getMessage();
-    require('view/errorView.php');
+    require('View/errorView.php');
 }

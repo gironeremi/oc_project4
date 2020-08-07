@@ -10,7 +10,7 @@ class Controller
             $commentManager = new CommentManager();
             $post = $postManager->getPost($_GET['id']);
             $comments = $commentManager->getComments($_GET['id']);
-            require('view/frontend/postView.php');
+            require('View/frontend/postView.php');
         } else {
             throw new Exception('aucun identifiant de billet envoyé.');
         }
@@ -23,5 +23,9 @@ class Controller
         } else {
             return "";
         }
+    }
+    public function admin()
+    {
+        require('View/frontend/adminView.php');
     }
 }
