@@ -31,6 +31,7 @@ class PostsController extends Controller
         {
             $postManager = new PostManager();
             $affectedLines = $postManager->postPost($postTitle, $postContent, $postPublishDate);
+            header('location: /View/frontend/newPostSuccessView.php');
             if ($affectedLines === false) {
                 throw new \Exception('impossible d\'ajouter ce chapitre');
             }
