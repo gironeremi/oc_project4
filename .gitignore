@@ -1,4 +1,4 @@
 cr
 vendor
 .idea
-/Model/config.php
+App/Model/config.php
