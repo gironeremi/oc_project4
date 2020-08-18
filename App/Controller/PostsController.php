@@ -6,7 +6,7 @@ class PostsController extends Controller
     public function listPosts()
     {
         $postManager = new PostManager();
-        $posts = $postManager->getPosts();
+        $posts = $postManager->listPosts();
         require('View/frontend/listPostsView.php');
     }
     public function getPostShort($str)
@@ -20,23 +20,23 @@ class PostsController extends Controller
     {
         require('View/frontend/newPostView.php');
     }
-    //TODO une méthode qui créé un article.
     public function addPost()
     {
         //déclaration et nettoyage des données
         $postTitle = parent::cleanVar($_POST['postTitle']);
-        $postContent = $_POST['postContent'];//cleanVar enlevé...pour éviter un soucis avec htmlspecialchars, on va tenter.
+        $postContent = $_POST['postContent'];//cleanVar retiré, TinyMCE fait dejà le taf.
         $postPublishDate = parent::cleanVar($_POST['postPublishDate']);
-        if (!empty($postTitle) && !empty($postContent) && !empty($postPublishDate))
+        if (empty($postTitle) || empty($postContent) ||empty($postPublishDate))
         {
+            throw new \Exception('Toutes les données ne sont pas saisies!');
+        } else {
             $postManager = new PostManager();
-            $affectedLines = $postManager->postPost($postTitle, $postContent, $postPublishDate);
-            header('location: /View/frontend/newPostSuccessView.php');
+            $affectedLines = $postManager->addPost($postTitle, $postContent, $postPublishDate);
             if ($affectedLines === false) {
                 throw new \Exception('impossible d\'ajouter ce chapitre');
+            } else {
+                header('location: /View/frontend/newPostSuccessView.php');
             }
-        } else {
-            throw new \Exception('Toutes les données ne sont pas saisies!');
         }
     }
     //TODO la méthode getLastPost avec GetPosts dedans... puis un tri (avec end()?)

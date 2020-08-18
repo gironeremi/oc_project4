@@ -18,7 +18,7 @@
     </textarea>
     </p>
     <p>
-        <label for="postPublishDate">Date de publication : </label><input type="date" name="postPublishDate" class="form-control">
+        <label for="postPublishDate">Date de publication : </label><input type="date" name="postPublishDate" class="form-control" value="<?= date('Y-m-d') ?>" />
     </p>
     <button type="submit">Valider</button>
 </form>

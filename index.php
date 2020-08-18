@@ -27,9 +27,6 @@ try {
         case 'admin':
             $controller->admin();
             break;
-        case 'memberPanel':
-            $membersController->memberPanel();
-            break;
         case 'newPost':
             $postsController->newPost();
             break;

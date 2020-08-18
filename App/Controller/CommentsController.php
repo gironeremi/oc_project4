@@ -11,7 +11,7 @@ class CommentsController extends Controller
         if ((isset($postId)) && $postId > 0) {
             if (!empty($author) && !empty($comment)) {
                 $commentManager = new CommentManager();
-                $affectedLines = $commentManager->postComment($postId, $author, $comment);
+                $affectedLines = $commentManager->addComment($postId, $author, $comment);
                 if ($affectedLines === false) {
                     throw new \Exception('Impossible d\'ajouter le commentaire.');
                 } else {
