@@ -1,15 +1,18 @@
 <?php
+session_start();
 require 'vendor/autoload.php';
 use App\Controller\Controller;
 use App\Controller\CommentsController;
 use App\Controller\PostsController;
 use App\Controller\MembersController;
+use App\Model\MembersManager;
 
 $action = "";
 $controller = new Controller();
 $commentsController = new CommentsController();
 $postsController = new PostsController();
 $membersController = new MembersController();
+$membersManager = new MembersManager();
 if (isset($_GET['action'])) {
     $action = $controller->cleanVar($_GET['action']);
 }
@@ -33,10 +36,23 @@ try {
         case 'addPost':
             $postsController->addPost();
             break;
+        case 'login':
+            $membersController->login();
+            break;
+        case 'logout':
+            $membersController->logout();
+            break;
+        case 'register':
+            $membersController->register();
+            break;
+        case 'addMember':
+            $membersManager->addMember($memberName, $passwordHashed, $email);
+            break;
         default:
             $postsController->listPosts();
     }
 }
 catch(Exception $e) {
-    $error = $e->getMessage();
+    var_dump($e);
+    //$error = $e->getMessage();
 }

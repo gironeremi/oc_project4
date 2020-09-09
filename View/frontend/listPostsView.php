@@ -2,6 +2,15 @@
 
 <?php ob_start(); ?>
 <div>
+    <?php
+    if (!empty($_SESSION['flash'])) {
+        foreach($_SESSION['flash'] as $message) {?>
+            <h3><?= $message; ?></h3>
+            <?php
+        }
+    }?>
+</div>
+    <div>
     <p>Dernier épisode:</p>
 
 </div>
