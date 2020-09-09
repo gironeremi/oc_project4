@@ -1,10 +1,15 @@
 <?php
 ?>
-<nav class="navbar bg-light sticky-top">
+<nav class="navbar <?php
+if (isset($_SESSION['isAdmin']) && $_SESSION['isAdmin'] == 1) {
+    echo 'bg-dark text-light';
+} else {
+    echo 'bg-light';
+}
+?>
+ sticky-top">
     <ul class="nav">
         <li class="navbar-brand"><a href="index.php">Jean Forteroche</a></li>
-        <li class="nav nav-item"><a class="nav-link">Nav Link</a></li>
-        <li class="nav nav-item"><a href="index.php?action=admin" class="nav-link">Admin</a></li>
         <?php
         if (isset($_SESSION['memberName']))
         {?>

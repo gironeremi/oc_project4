@@ -39,10 +39,11 @@ class MembersController extends Controller
                 $passwordHashed = password_hash($password, PASSWORD_DEFAULT);
                 //On insère dans la base (avec une méthode euh...AddMember)
                 $membersManager->addMember($memberName, $passwordHashed, $email);
-                session_start();
+                //session_start();
                 $_SESSION['memberName'] = $memberName;
-                //$_SESSION['flash']['success'] = "Vous êtes inscrit ET connecté. Bienvenue dans la meute, ". $_SESSION['memberName'] ." !";
-                //session flash avec un message du genre: BRavo! Vous êtes désormais connecté. Enjoy!?
+                $_SESSION['member_id'] = $memberExists['member_id'];
+                $_SESSION['isAdmin'] = $memberExists['isAdmin'];
+                //session flash avec un message du genre: Bravo! Vous êtes désormais connecté. Enjoy!?
                 header('location: index.php');
             }
         }
@@ -67,9 +68,16 @@ class MembersController extends Controller
             //si aucune erreur, connexion :)
             if (empty($errors)) {
                 //on pourrait factoriser le code, c'est le même que celui du dessus. Genre... une méthode LoginSuccess()
-                session_start();
+                //session_start();
                 $_SESSION['memberName'] = $memberName;
-                header('location: index.php');
+                $_SESSION['member_id'] = $memberExists['member_id'];
+                $_SESSION['isAdmin'] = $memberExists['is_admin'];
+                if ($_SESSION['isAdmin'] == 1) {
+                    $this->admin();
+                    die();
+                } else {
+                    header('location: index.php');
+                }
             }
         }
         require('View/frontend/loginView.php');
