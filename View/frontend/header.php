@@ -1,19 +1,21 @@
 <?php
-?>
-<nav class="navbar <?php
 if (isset($_SESSION['isAdmin']) && $_SESSION['isAdmin'] == 1) {
-    echo 'bg-dark text-light';
+    echo '<nav class="navbar bg-dark text-light sticky-top">';
 } else {
-    echo 'bg-light';
+    echo '<nav class="navbar bg-light sticky-top">';
 }
 ?>
- sticky-top">
     <ul class="nav">
         <li class="navbar-brand"><a href="index.php">Jean Forteroche</a></li>
         <?php
         if (isset($_SESSION['memberName']))
         {?>
             <li class="nav nav-item nav-link">Bienvenue <?= $_SESSION['memberName'] ?></li>
+            <?php
+            if (isset($_SESSION['isAdmin']) && $_SESSION['isAdmin'] == 1) {
+                echo '<li class="nav nav-item"><a href="index.php?action=admin" class="nav-link">' . 'Panneau d\'administration' . '</a></li>';
+                }
+            ?>
             <li class="nav nav-item"><a href="index.php?action=logout" class="nav-link">Déconnexion</a></li>
         <?php }
          else {?>

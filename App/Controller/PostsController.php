@@ -20,12 +20,16 @@ class PostsController extends Controller
     {
         require('View/frontend/newPostView.php');
     }
+    public function nextPost()
+    {
+
+    }
     public function addPost()
     {
         //déclaration et nettoyage des données
-        $postTitle = parent::cleanVar($_POST['postTitle']);
+        $postTitle = $this->cleanVar($_POST['postTitle']);
         $postContent = $_POST['postContent'];//cleanVar retiré, TinyMCE fait dejà le taf.
-        $postPublishDate = parent::cleanVar($_POST['postPublishDate']);
+        $postPublishDate = $this->cleanVar($_POST['postPublishDate']);
         if (empty($postTitle) || empty($postContent) ||empty($postPublishDate))
         {
             throw new \Exception('Toutes les données ne sont pas saisies!');

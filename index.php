@@ -27,6 +27,9 @@ try {
         case 'addComment':
             $commentsController->addComment();
             break;
+        case 'nextPost':
+            $postsController->nextPost();
+            break;
         case 'admin':
             $controller->admin();
             break;

@@ -1,7 +1,7 @@
-<?php $title = htmlspecialchars($post['title']); ?>
+<?php $title = $post['title']; ?>
 
 <?php ob_start(); ?>
-<p><a href="../../index.php">Retour à la liste des épisodes</a></p>
+<p><a href="index.php">Retour à la liste des épisodes</a></p>
 
 <div class="card">
     <div class="card-header">
@@ -10,7 +10,12 @@
     <div class="card-body">
         <p><?= nl2br($post['content']) ?></p>
     </div>
+    <div class="card-footer d-flex justify-content-center">
+        <a href="index.php" class="btn btn-primary">Retour à l'accueil</a>
+    </div>
 </div>
+
+
 
 <h2>Commentaires</h2>
 <form action="index.php?action=addComment&id=<?= $post['post_id'] ?>" method="post">

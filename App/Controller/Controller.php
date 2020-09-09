@@ -26,6 +26,10 @@ class Controller
     }
     public function admin()
     {
-        require('View/frontend/adminView.php');
+        if (isset($_SESSION['isAdmin']) && $_SESSION['isAdmin'] == 1) {
+            require('View/frontend/adminView.php');
+        } else {
+            header('location:index.php');
+        }
     }
 }
