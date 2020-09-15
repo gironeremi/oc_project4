@@ -85,7 +85,7 @@ class MembersController extends Controller
     public function logout()
     {
         session_destroy();
-        unset($_SESSION['memberName']);
+        unset($_SESSION['memberName']);//faut enlever tout le reste, eh!
         header('location: index.php');
     }
 }

@@ -5,17 +5,17 @@ class CommentsController extends Controller
 {
     public function addComment()//vu que les tables ont été modifiées, il faudra retravailler l'ajout de commentaires.
     {
-        $postId = parent::cleanVar($_GET['post_id']);
-        $author = parent::cleanVar($_POST['member_id']);
-        $comment = parent::cleanVar($_POST['comment']);
+        $postId = $this->cleanVar($_GET['id']);
+        $author = $this->cleanVar($_SESSION['member_id']);
+        $comment = $this->cleanVar($_POST['comment']);
         if ((isset($postId)) && $postId > 0) {
-            if (!empty($author) && !empty($comment)) {
+            if (!empty($comment)) {
                 $commentManager = new CommentManager();
                 $affectedLines = $commentManager->addComment($postId, $author, $comment);
                 if ($affectedLines === false) {
                     throw new \Exception('Impossible d\'ajouter le commentaire.');
                 } else {
-                    header('Location: index.php?action=post&id=' . $postId);
+                    echo 'Commentaire ajouté!';//header('Location: index.php?action=post&id=' . $postId);
                 }
             } else {
                 throw new \Exception('tous les champs ne sont pas remplis !');

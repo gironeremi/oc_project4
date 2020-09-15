@@ -18,28 +18,38 @@
 
 
 <h2>Commentaires</h2>
-<form action="index.php?action=addComment&id=<?= $post['post_id'] ?>" method="post">
+<!--Si un utilisateur est connecté, le formulaire s'affichera-->
+<?php
+if (isset($_SESSION['memberName'])) {
+?>
+<form action="index.php?action=addComment&id=<?= $post['post_id'] ?>" method="post" class="form-group m-2">
     <div>
-        <label for="author">Auteur</label><br />
-        <input type="text" id="author" name="author" />
+        <label for="comment">Votre commentaire</label><br />
+        <textarea id="comment" class="form-control" name="comment"></textarea>
     </div>
     <div>
-        <label for="comment">Commentaire</label><br />
-        <textarea id="comment" name="comment"></textarea>
-    </div>
-    <div>
-        <input type="submit" />
+        <input type="submit" class="btn btn-primary m-1"/>
     </div>
 </form>
 <?php
-foreach ($comments as $comment)
-{
-    ?>
-    <p><strong><?= $comment['member_id'] ?></strong> le <?= $comment['comment_date_fr'] ?></p>
-    <p><?= nl2br($comment['comment']) ?></p>
-    <?php
+} else {
+    echo '<div class="alert alert-info"><strong>Info: </strong>Pour laisser un commentaire, veuillez <a href="index.php?action=login">vous connecter.</a></div>';
 }
 ?>
+<div class="row">
+    <?php
+    foreach ($comments as $comment)
+    {
+        ?>
+        <div class="card col-lg-3 col-md-6 col-sm-12">
+                <h4 class="card-title"><?= $comment['member_id'] ?> a dit:</h4>
+                <p class="card-text"><?= nl2br($comment['comment']) ?></p>
+                <p class="card-text font-italic">le <?= $comment['comment_date_fr']?></p>
+        </div>
+        <?php
+    }
+    ?>
+</div>
 <?php $content = ob_get_clean(); ?>
 
 <?php require('template.php'); ?>
