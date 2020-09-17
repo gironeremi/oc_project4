@@ -42,7 +42,7 @@ if (isset($_SESSION['memberName'])) {
     {
         ?>
         <div class="card col-lg-3 col-md-6 col-sm-12">
-                <h4 class="card-title"><?= $comment['member_id'] ?> a dit:</h4>
+                <h4 class="card-title"><?= $comment['member_name'] ?> a dit:</h4>
                 <p class="card-text"><?= nl2br($comment['comment']) ?></p>
                 <p class="card-text font-italic">le <?= $comment['comment_date_fr']?></p>
         </div>
