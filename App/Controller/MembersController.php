@@ -47,7 +47,7 @@ class MembersController extends Controller
                 header('location: index.php');
             }
         }
-        require('View/frontend/registerView.php');
+        require('View/registerView.php');
     }
     public function login()
     {
@@ -80,7 +80,7 @@ class MembersController extends Controller
                 }
             }
         }
-        require('View/frontend/loginView.php');
+        require('View/loginView.php');
     }
     public function logout()
     {

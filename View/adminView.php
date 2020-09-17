@@ -1,7 +1,7 @@
 <?php $title = 'Espace Administrateur'; ?>
 <?php ob_start(); ?>
 <div class="h1 text-center">Bonjour monsieur Forteroche</div>
-<a href="../../index.php?action=newPost"><button type="button" class="btn btn-primary btn-sm">Nouvel épisode</button></a>
+<a href="../index.php?action=newPost"><button type="button" class="btn btn-primary btn-sm">Nouvel épisode</button></a>
 <table class="table table-hover">
     <thead class="thead-light">
         <th>Liste des épisodes</th>
@@ -48,7 +48,8 @@
     <th>Commentaires signalés par les membres</th>
     </thead>
     <tbody>
-    <!--Ici également une boucle foreach avec tous les commentaires qui ont été signalés-->
+    <!--Ici également une boucle foreach avec tous les commentaires qui ont été signalés.
+    Ex: if isset($Flaggedcomments && !empty()) {foreach (flaggedcomments as flaggedcomment}-->
     <tr>
         <td>Micheldu38</td>
         <td>Chapitre La Louve</td>

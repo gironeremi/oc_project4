@@ -10,7 +10,7 @@ class Controller
             $commentManager = new CommentManager();
             $post = $postManager->getPostById($_GET['post_id']);
             $comments = $commentManager->listComments($_GET['post_id']);
-            require('View/frontend/postView.php');
+            require('View/postView.php');
         } else {
             throw new \Exception('aucun identifiant de billet envoyé.');
         }
@@ -27,7 +27,9 @@ class Controller
     public function admin()
     {
         if (isset($_SESSION['isAdmin']) && $_SESSION['isAdmin'] == 1) {
-            require('View/frontend/adminView.php');
+            //ici créer une méthode récupérant les commentaires "signalés"
+            //et générer le tableau avec les épisodes et les boutons CRUD
+            require('View/adminView.php');
         } else {
             header('location:index.php');
         }

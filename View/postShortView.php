@@ -10,6 +10,6 @@
         </p>
     </div>
     <div ="card-footer bg-light">
-        <a href="../../index.php?action=post&post_id=<?= $post['post_id'] ?>" class="btn btn-primary btn-block" role="button">Lire la suite</a>
+        <a href="../index.php?action=post&post_id=<?= $post['post_id'] ?>" class="btn btn-primary btn-block" role="button">Lire la suite</a>
     </div>
 </div>

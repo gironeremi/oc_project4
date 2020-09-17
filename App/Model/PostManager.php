@@ -16,7 +16,7 @@ class PostManager extends Manager
         $post = $req->fetch();
         return $post;
     }
-    public function getLastPost()
+    public function getLastPost() //pas encore mis en place
     {
         $db = $this->getDbConnect();
         $lastPost = $db->query('SELECT * FROM posts ORDER BY creation_date DESC LIMIT 1');

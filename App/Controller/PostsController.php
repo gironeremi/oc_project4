@@ -7,7 +7,7 @@ class PostsController extends Controller
     {
         $postManager = new PostManager();
         $posts = $postManager->listPosts();
-        require('View/frontend/listPostsView.php');
+        require('View/listPostsView.php');
     }
     public function getPostShort($str)
     {
@@ -18,7 +18,7 @@ class PostsController extends Controller
     }
     public function newPost()
     {
-        require('View/frontend/newPostView.php');
+        require('View/newPostView.php');
     }
     public function nextPost()
     {
@@ -39,7 +39,7 @@ class PostsController extends Controller
             if ($affectedLines === false) {
                 throw new \Exception('impossible d\'ajouter ce chapitre');
             } else {
-                header('location: /View/frontend/newPostSuccessView.php');
+                header('location: /View/newPostSuccessView.php');
             }
         }
     }
