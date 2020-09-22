@@ -27,6 +27,14 @@ try {
         case 'addComment':
             $commentsController->addComment();
             break;
+        case 'flagComment':
+            $commentsController->flagComment();
+            break;
+        case 'validateComment':
+            $commentsController->validateComment();
+            break;
+        case 'deleteComment':
+            $commentsController->deleteComment();
         case 'nextPost':
             $postsController->nextPost();
             break;

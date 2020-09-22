@@ -9,11 +9,13 @@
             <?php
         }
     }?>
+<!--Pour l'instant, pas d'affichage du dernier épisode
 </div>
     <div>
     <p>Dernier épisode:</p>
 
 </div>
+-->
 <div class="container-fluid">
     <p>Tous les épisodes :</p>
     <div class="row">

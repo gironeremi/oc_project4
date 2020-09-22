@@ -42,9 +42,21 @@ if (isset($_SESSION['memberName'])) {
     {
         ?>
         <div class="card col-lg-3 col-md-6 col-sm-12">
-                <h4 class="card-title"><?= $comment['member_name'] ?> a dit:</h4>
-                <p class="card-text"><?= nl2br($comment['comment']) ?></p>
-                <p class="card-text font-italic">le <?= $comment['comment_date_fr']?></p>
+            <h4 class="card-title"><?= $comment['member_name'] ?> a dit:</h4>
+            <p class="card-text"><?= nl2br($comment['comment']) ?></p>
+            <p class="card-text font-italic">le <?= $comment['comment_date_fr']?></p>
+            <?php
+                if (isset($_SESSION['memberName']) && $comment['status'] == 0 ) {?>
+                    <a href="index.php?action=flagComment&comment_id=<?= $comment['comment_id'];?>" class="btn btn-danger btn-sm">Signaler ce commentaire</a>
+            <?php
+                }
+                elseif ($comment['status'] == 1) {
+                    echo '<div class="text-danger text-right"><i class="fas fa-user-clock"></i> En cours de modération.</div>';
+                }
+                if ($comment['status'] == 2) {
+                    echo '<div class="text-success text-right"><i class="fas fa-user-check"></i> Commentaire validé.</div>';
+                }
+            ?>
         </div>
         <?php
     }

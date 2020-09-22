@@ -28,6 +28,8 @@ class Controller
     {
         if (isset($_SESSION['isAdmin']) && $_SESSION['isAdmin'] == 1) {
             //ici créer une méthode récupérant les commentaires "signalés"
+            $commentManager = new CommentManager();
+            $flaggedComments = $commentManager->listFlaggedComments();
             //et générer le tableau avec les épisodes et les boutons CRUD
             require('View/adminView.php');
         } else {
