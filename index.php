@@ -24,6 +24,14 @@ try {
         case 'post':
             $controller->post();
             break;
+        case 'editPost':
+            $postsController->editPost();
+            break;
+        case 'updatePost':
+            $postsController->updatePost();
+        case 'deletePost':
+            $postsController->deletePost();
+            break;
         case 'addComment':
             $commentsController->addComment();
             break;
@@ -64,6 +72,6 @@ try {
     }
 }
 catch(Exception $e) {
-    var_dump($e);
-    //$error = $e->getMessage();
+    $error = new \App\Controller\ErrorsController();
+    $error->error($e);
 }

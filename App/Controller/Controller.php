@@ -31,6 +31,8 @@ class Controller
             $commentManager = new CommentManager();
             $flaggedComments = $commentManager->listFlaggedComments();
             //et générer le tableau avec les épisodes et les boutons CRUD
+            $postManager = new PostManager();
+            $posts = $postManager->listPosts();
             require('View/adminView.php');
         } else {
             header('location:index.php');
