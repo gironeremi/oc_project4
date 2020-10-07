@@ -16,11 +16,11 @@ class PostsController extends Controller
         $lastSpace = mb_strrpos($contentExtract,' ', 0);
         echo nl2br(mb_substr($str, 0, $lastSpace)). "...";
     }
-    public function newPost()
-    {
-        require('View/newPostView.php');
-    }
     public function nextPost()
+    {
+
+    }
+    public function previousPost()
     {
 
     }
@@ -39,19 +39,21 @@ class PostsController extends Controller
             if ($affectedLines === false) {
                 throw new \Exception('impossible d\'ajouter ce chapitre');
             } else {
-                header('location: /View/newPostSuccessView.php');
+                //message de réussite
+                $successMessage = "Le chapitre a bien été ajouté!";
+                require('View/template.php');
             }
         }
     }
-    public function editPost()
+    public function getPostEditor()
     {
         if (isset($_GET['post_id']) && $_GET['post_id'] > 0) {
             $postManager = new PostManager();
             $post = $postManager->getPostById($_GET['post_id']);
-            require('View/updatePostView.php');
         }
+        require('View/postEditorView.php');
     }
-    public function updatePost()//pas fini :/
+    public function updatePost()
     {
         $postId = $_GET['post_id'];
         $postTitle = $this->cleanVar($_POST['postTitle']);
@@ -62,7 +64,8 @@ class PostsController extends Controller
         } else {
             $postManager = new PostManager();
             $postManager->updatePost($postId, $postTitle, $postContent, $postPublishDate);
-            throw new \Exception('Le chapitre a bien été mis à jour!');
+            $successMessage = 'Le chapitre a bien été mis à jour!';
+            require('View/template.php');
         }
     }
     public function deletePost()
@@ -70,7 +73,8 @@ class PostsController extends Controller
         $postId = $_GET['post_id'];
         $postManager = new PostManager();
         $postManager->deletePost($postId);
+        $successMessage = 'Le chapitre est supprimé!';
+        require('View/template.php');
     }
     //TODO la méthode getLastPost avec GetPosts dedans... puis un tri (avec end()?)
-    //TODO une autre qui modifie
 }

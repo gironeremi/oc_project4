@@ -26,16 +26,14 @@ class Controller
     }
     public function admin()
     {
-        if (isset($_SESSION['isAdmin']) && $_SESSION['isAdmin'] == 1) {
-            //ici créer une méthode récupérant les commentaires "signalés"
+        if ($_SESSION['isAdmin'] == 1) {
             $commentManager = new CommentManager();
             $flaggedComments = $commentManager->listFlaggedComments();
-            //et générer le tableau avec les épisodes et les boutons CRUD
             $postManager = new PostManager();
             $posts = $postManager->listPosts();
             require('View/adminView.php');
         } else {
-            header('location:index.php');
+            throw new \Exception('Accès administateur non autorisé!');
         }
     }
 }

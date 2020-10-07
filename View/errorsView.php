@@ -1,5 +1,5 @@
 <?php
-$title = 'Mon blog';
+$title = 'Jean Forteroche';
 ob_start(); ?>
     <div class="alert alert-danger">
         <?= $exception->getMessage(); ?>

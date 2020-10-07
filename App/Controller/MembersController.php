@@ -37,14 +37,15 @@ class MembersController extends Controller
             }
             if (empty($errors)) {
                 $passwordHashed = password_hash($password, PASSWORD_DEFAULT);
-                //On insère dans la base (avec une méthode euh...AddMember)
                 $membersManager->addMember($memberName, $passwordHashed, $email);
-                //session_start();
                 $_SESSION['memberName'] = $memberName;
                 $_SESSION['member_id'] = $memberExists['member_id'];
-                $_SESSION['isAdmin'] = $memberExists['isAdmin'];
-                //session flash avec un message du genre: Bravo! Vous êtes désormais connecté. Enjoy!?
-                header('location: index.php');
+                $_SESSION['isAdmin'] = $memberExists['is_admin'];
+                //$_SESSION['member_id'] = $req['member_id'];
+                //$_SESSION['isAdmin'] = $req['isAdmin'];
+                $successMessage = 'Vous êtes à présent inscrit. Bienvenue dans la meute!';
+                require('View/loginView.php');
+                die();
             }
         }
         require('View/registerView.php');
@@ -70,13 +71,13 @@ class MembersController extends Controller
                 //on pourrait factoriser le code, c'est le même que celui du dessus. Genre... une méthode LoginSuccess()
                 //session_start();
                 $_SESSION['memberName'] = $memberName;
-                $_SESSION['member_id'] = $memberExists['member_id'];
+                $_SESSION['memberId'] = $memberExists['member_id'];
                 $_SESSION['isAdmin'] = $memberExists['is_admin'];
                 if ($_SESSION['isAdmin'] == 1) {
                     $this->admin();
                     die();
                 } else {
-                    header('location: index.php');
+                    $successMessage = 'Vous êtes connecté. Bienvenue '. $memberName . " !";
                 }
             }
         }
@@ -86,6 +87,7 @@ class MembersController extends Controller
     {
         session_destroy();
         unset($_SESSION['memberName']);//faut enlever tout le reste, eh!
-        header('location: index.php');
+        $successMessage = "Vous êtes bien déconnecté.";
+        require('View/template.php');
     }
 }

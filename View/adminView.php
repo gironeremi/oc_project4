@@ -11,8 +11,7 @@
             foreach ($flaggedComments as $flaggedComment) {
     ?>
         <tr>
-            <td><?= $flaggedComment['member_id']; ?></td>
-            <td><?= $flaggedComment['post_id']; ?></td>
+            <td><?= $flaggedComment['member_name']; ?> a commenté: </td>
             <td><?= $flaggedComment['comment']; ?></td>
             <td>
                 <div class="btn-group">
@@ -27,7 +26,7 @@
     ?>
     </tbody>
 </table>
-<p><a href="index.php?action=newPost"><button type="button" class="btn btn-primary btn-sm">Nouvel épisode</button></a></p>
+<p><a href="index.php?action=getPostEditor"><button type="button" class="btn btn-primary btn-sm">Nouvel épisode</button></a></p>
 <table class="table table-hover">
     <thead class="thead-light">
     <th>Liste des épisodes</th>
@@ -44,7 +43,7 @@
             <td>
                 <div class="btn-group">
                     <a href="index.php?action=post&post_id=<?= $post['post_id'] ?>" class="btn btn-info">Consulter</a>
-                    <a href="index.php?action=editPost&post_id=<?= $post['post_id'] ?>" class="btn btn-warning">Modifier</a>
+                    <a href="index.php?action=getPostEditor&post_id=<?= $post['post_id'] ?>" class="btn btn-warning">Modifier</a>
                     <a href="index.php?action=deletePost&post_id=<?= $post['post_id'] ?>" class="btn btn-danger">Supprimer</a>
                 </div>
             </td>

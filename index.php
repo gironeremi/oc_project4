@@ -24,11 +24,15 @@ try {
         case 'post':
             $controller->post();
             break;
-        case 'editPost':
-            $postsController->editPost();
+        case 'addPost':
+            $postsController->addPost();
+            break;
+        case 'getPostEditor':
+            $postsController->getPostEditor();
             break;
         case 'updatePost':
             $postsController->updatePost();
+            break;
         case 'deletePost':
             $postsController->deletePost();
             break;
@@ -48,12 +52,6 @@ try {
             break;
         case 'admin':
             $controller->admin();
-            break;
-        case 'newPost':
-            $postsController->newPost();
-            break;
-        case 'addPost':
-            $postsController->addPost();
             break;
         case 'login':
             $membersController->login();

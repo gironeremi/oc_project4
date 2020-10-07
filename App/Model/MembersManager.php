@@ -21,5 +21,6 @@ class MembersManager extends Manager
         $db = $this->getDbConnect();
         $req = $db->prepare('INSERT INTO members SET member_name = ?, password = ?, email = ?');
         $req->execute(array($memberName, $passwordHashed, $email));
+        //return $req->fetch();
     }
 }

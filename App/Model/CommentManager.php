@@ -26,7 +26,7 @@ class CommentManager extends Manager
     public function listFlaggedComments()
     {
         $db = $this->getDbConnect();
-        $flaggedComments = $db->query('SELECT * FROM comments WHERE status = 1');
+        $flaggedComments = $db->query('SELECT comments.comment_id, comments.member_id, comments.comment, members.member_name FROM comments INNER JOIN members ON comments.member_id = members.member_id WHERE status = 1');
         return $flaggedComments;
     }
     public function validateComment($commentId)
