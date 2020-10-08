@@ -1,4 +1,4 @@
-<div class="card col-lg-4 col-md-6 col-sm-12 mb-5">
+<div class="card col-lg-4 col-md-6 col-sm-12 h-100">
     <div class="card-header bg-secondary">
         <h3><?= $post['title'] ?></h3>
     </div>

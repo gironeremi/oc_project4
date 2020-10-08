@@ -50,6 +50,9 @@ try {
         case 'nextPost':
             $postsController->nextPost();
             break;
+        case 'previousPost':
+            $postsController->previousPost();
+            break;
         case 'admin':
             $controller->admin();
             break;

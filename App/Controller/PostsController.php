@@ -18,11 +18,21 @@ class PostsController extends Controller
     }
     public function nextPost()
     {
-
+        $postId = $_GET['post_id'];
+        if ($postId > 0) {
+            $postManager = new PostManager();
+            $postManager->getNextPost($postId);
+            require('View/postView.php');
+        }
     }
     public function previousPost()
     {
-
+        if ($_GET['post_id'] > 0) {
+            $postId = $_GET['post_id'];
+            $postManager = new PostManager();
+            $postManager->getPreviousPost($postId);
+            require('View/postView.php');
+        }
     }
     public function addPost()
     {

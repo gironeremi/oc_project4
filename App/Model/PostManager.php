@@ -17,7 +17,22 @@ class PostManager extends Manager
         $post = $req->fetch();
         return $post;
     }
-
+    public function getNextPost($postId)
+    {
+        $db = $this->getDbConnect();
+        $req = $db->prepare('SELECT * FROM posts WHERE post_id > ? LIMIT 1');
+        $req->execute(array($postId));
+        $post = $req->fetch();
+        return $post;
+    }
+    public function getPreviousPost($postId)
+    {
+        $db = $this->getDbConnect();
+        $req = $db->prepare('SELECT * FROM posts WHERE post_id < ? LIMIT 1');
+        $req->execute(array($postId));
+        $post = $req->fetch();
+        return $post;
+    }
     public function getLastPost() //pas encore mis en place
     {
         $db = $this->getDbConnect();

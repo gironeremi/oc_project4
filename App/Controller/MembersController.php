@@ -38,11 +38,6 @@ class MembersController extends Controller
             if (empty($errors)) {
                 $passwordHashed = password_hash($password, PASSWORD_DEFAULT);
                 $membersManager->addMember($memberName, $passwordHashed, $email);
-                $_SESSION['memberName'] = $memberName;
-                $_SESSION['member_id'] = $memberExists['member_id'];
-                $_SESSION['isAdmin'] = $memberExists['is_admin'];
-                //$_SESSION['member_id'] = $req['member_id'];
-                //$_SESSION['isAdmin'] = $req['isAdmin'];
                 $successMessage = 'Vous êtes à présent inscrit. Bienvenue dans la meute!';
                 require('View/loginView.php');
                 die();
@@ -78,6 +73,8 @@ class MembersController extends Controller
                     die();
                 } else {
                     $successMessage = 'Vous êtes connecté. Bienvenue '. $memberName . " !";
+                    require ('View/template.php');
+                    die();
                 }
             }
         }

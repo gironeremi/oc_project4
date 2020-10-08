@@ -10,8 +10,10 @@
     <div class="card-body">
         <p><?= nl2br($post['content']) ?></p>
     </div>
-    <div class="card-footer d-flex justify-content-center">
+    <div class="card-footer d-flex justify-content-around">
+        <a href="index.php?action=previousPost&post_id=<?= $post['post_id'] ?>" class="btn btn-secondary">Chapitre précédent</a>
         <a href="index.php" class="btn btn-primary">Retour à l'accueil</a>
+        <a href="index.php?action=nextPost&post_id=<?= $post['post_id'] ?>" class="btn btn-secondary">Chapitre suivant</a>
     </div>
 </div>
 
@@ -41,7 +43,7 @@ if (isset($_SESSION['memberName'])) {
     foreach ($comments as $comment)
     {
         ?>
-        <div class="card col-lg-3 col-md-6 col-sm-12">
+        <div class="card h-100 col-lg-3 col-md-6 col-sm-12">
             <h4 class="card-title"><?= $comment['member_name'] ?> a dit:</h4>
             <p class="card-text"><?= nl2br($comment['comment']) ?></p>
             <p class="card-text font-italic">le <?= $comment['comment_date_fr']?></p>
