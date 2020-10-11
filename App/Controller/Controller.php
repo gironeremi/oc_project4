@@ -10,6 +10,8 @@ class Controller
             $commentManager = new CommentManager();
             $post = $postManager->getPostById($_GET['post_id']);
             $comments = $commentManager->listComments($_GET['post_id']);
+            $previousPostId = $postManager->getPreviousPost($_GET['post_id']);
+            $nextPostId = $postManager->getNextPost($_GET['post_id']);
             require('View/postView.php');
         } else {
             throw new \Exception('aucun identifiant de billet envoyé.');

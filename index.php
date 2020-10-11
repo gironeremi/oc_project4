@@ -43,18 +43,13 @@ try {
             $commentsController->flagComment();
             break;
         case 'validateComment':
-            $commentsController->validateComment();
+            $commentsController->validateComment();//à mettre dans AdminController
             break;
         case 'deleteComment':
-            $commentsController->deleteComment();
-        case 'nextPost':
-            $postsController->nextPost();
-            break;
-        case 'previousPost':
-            $postsController->previousPost();
+            $commentsController->deleteComment();//à mettre dans AdminController
             break;
         case 'admin':
-            $controller->admin();
+            $controller->admin();//à mettre dans AdminController
             break;
         case 'login':
             $membersController->login();

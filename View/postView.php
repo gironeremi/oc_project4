@@ -11,9 +11,21 @@
         <p><?= nl2br($post['content']) ?></p>
     </div>
     <div class="card-footer d-flex justify-content-around">
-        <a href="index.php?action=previousPost&post_id=<?= $post['post_id'] ?>" class="btn btn-secondary">Chapitre précédent</a>
+        <?php
+            if(!empty($previousPostId)) {
+        ?>
+                <a href="index.php?action=post&post_id=<?= $previousPostId; ?>" class="btn btn-secondary">Chapitre précédent</a>
+        <?php
+            }
+        ?>
         <a href="index.php" class="btn btn-primary">Retour à l'accueil</a>
-        <a href="index.php?action=nextPost&post_id=<?= $post['post_id'] ?>" class="btn btn-secondary">Chapitre suivant</a>
+        <?php
+            if(!empty($nextPostId)) {
+        ?>
+                <a href="index.php?action=post&post_id=<?= $nextPostId; ?>" class="btn btn-secondary">Chapitre suivant</a>
+        <?php
+            }
+        ?>
     </div>
 </div>
 
