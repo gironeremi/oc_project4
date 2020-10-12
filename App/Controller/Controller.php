@@ -17,25 +17,12 @@ class Controller
             throw new \Exception('aucun identifiant de billet envoyé.');
         }
     }
-
     public function cleanVar($str)
     {
         if (isset($str)) {
             return trim(htmlspecialchars($str));
         } else {
             return "";
-        }
-    }
-    public function admin()
-    {
-        if ($_SESSION['isAdmin'] == 1) {
-            $commentManager = new CommentManager();
-            $flaggedComments = $commentManager->listFlaggedComments();
-            $postManager = new PostManager();
-            $posts = $postManager->listPosts();
-            require('View/adminView.php');
-        } else {
-            throw new \Exception('Accès administateur non autorisé!');
         }
     }
 }

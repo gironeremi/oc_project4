@@ -39,7 +39,7 @@ class MembersController extends Controller
                 $passwordHashed = password_hash($password, PASSWORD_DEFAULT);
                 $membersManager->addMember($memberName, $passwordHashed, $email);
                 $successMessage = 'Vous êtes à présent inscrit. Bienvenue dans la meute!';
-                require('View/loginView.php');
+                require('View/template.php');
                 die();
             }
         }
@@ -69,7 +69,8 @@ class MembersController extends Controller
                 $_SESSION['memberId'] = $memberExists['member_id'];
                 $_SESSION['isAdmin'] = $memberExists['is_admin'];
                 if ($_SESSION['isAdmin'] == 1) {
-                    $this->admin();
+                    $adminController = new AdminController();
+                    $adminController->admin();
                     die();
                 } else {
                     $successMessage = 'Vous êtes connecté. Bienvenue '. $memberName . " !";

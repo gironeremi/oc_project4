@@ -23,23 +23,4 @@ class CommentManager extends Manager
         $flag = $flagComment->execute(array($commentId));
         return $flag;
     }
-    public function listFlaggedComments()
-    {
-        $db = $this->getDbConnect();
-        $flaggedComments = $db->query('SELECT comments.comment_id, comments.member_id, comments.comment, members.member_name FROM comments INNER JOIN members ON comments.member_id = members.member_id WHERE status = 1');
-        return $flaggedComments;
-    }
-    public function validateComment($commentId)
-    {
-        $db = $this->getDbConnect();
-        $unflagComment = $db->prepare('UPDATE comments SET status = 2 WHERE comment_id = ?');
-        $unflag = $unflagComment->execute(array($commentId));
-        return $unflag;
-    }
-    public function deleteComment($commentId)
-    {
-        $db = $this->getDbConnect();
-        $deleteComment = $db->prepare('DELETE FROM comments WHERE comment_id = ?');
-        $deleteComment->execute(array($commentId));
-    }
 }

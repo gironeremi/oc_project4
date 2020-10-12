@@ -12,6 +12,7 @@ $controller = new Controller();
 $commentsController = new CommentsController();
 $postsController = new PostsController();
 $membersController = new MembersController();
+$adminController = new \App\Controller\AdminController();
 $membersManager = new MembersManager();
 if (isset($_GET['action'])) {
     $action = $controller->cleanVar($_GET['action']);
@@ -25,16 +26,16 @@ try {
             $controller->post();
             break;
         case 'addPost':
-            $postsController->addPost();
+            $adminController->addPost();
             break;
         case 'getPostEditor':
-            $postsController->getPostEditor();
+            $adminController->getPostEditor();
             break;
         case 'updatePost':
-            $postsController->updatePost();
+            $adminController->updatePost();
             break;
         case 'deletePost':
-            $postsController->deletePost();
+            $adminController->deletePost();
             break;
         case 'addComment':
             $commentsController->addComment();
@@ -43,13 +44,13 @@ try {
             $commentsController->flagComment();
             break;
         case 'validateComment':
-            $commentsController->validateComment();//à mettre dans AdminController
+            $adminController->validateComment();
             break;
         case 'deleteComment':
-            $commentsController->deleteComment();//à mettre dans AdminController
+            $adminController->deleteComment();
             break;
         case 'admin':
-            $controller->admin();//à mettre dans AdminController
+            $adminController->admin();
             break;
         case 'login':
             $membersController->login();

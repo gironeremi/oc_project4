@@ -29,20 +29,4 @@ class CommentsController extends Controller
             $successMessage = 'le commentaire a bien été signalé!';
             require('View/template.php');
     }
-    public function validateComment()
-    {
-        $commentId = $_GET['comment_id'];
-        $commentManager = new CommentManager();
-        $commentManager->validateComment($commentId);
-        $successMessage = 'Commentaire validé!';
-        require('View/template.php');
-    }
-    public function deleteComment()
-    {
-        $commentId = $_GET['comment_id'];
-        $commentManager = new CommentManager();
-        $commentManager->deleteComment($commentId);
-        $successMessage = 'Commentaire supprimé!';
-        require('View/template.php');
-    }
 }

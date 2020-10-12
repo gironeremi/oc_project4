@@ -39,23 +39,4 @@ class PostManager extends Manager
         $req = $db->query('SELECT COUNT(*) AS number_of_posts FROM posts');
         return $numberOfPosts = (int) $req->fetchColumn();
     }
-    public function addPost($postTitle, $postContent, $postPublishDate)
-    {
-        $db = $this->getDbConnect();
-        $newPost = $db->prepare('INSERT INTO posts(title, content, publish_date) VALUES (?,?,?)');
-        return $affectedLines = $newPost->execute(array($postTitle, $postContent, $postPublishDate));
-    }
-    public function deletePost($postId)
-    {
-        $db = $this->getDbConnect();
-        $deletePost = $db->prepare('DELETE FROM posts WHERE post_id = ?');
-        $deletePost->execute(array($postId));
-    }
-    public function updatePost($postId, $postTitle, $postContent, $postPublishDate)
-    {
-        $db = $this->getDbConnect();
-        $updatePost = $db->prepare('UPDATE posts SET title = ? , content = ? , publish_date = ? WHERE post_id = ?');
-        $updatePost->execute(array($postTitle, $postContent, $postPublishDate, $postId));
-
-    }
 }
