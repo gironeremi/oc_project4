@@ -5,8 +5,18 @@ class PostsController extends Controller
 {
     public function listPosts()
     {
+        //bloc de code pour la pagination (à séparer?)
+        if (isset($_GET['page']) && !empty($_GET['page'])) {
+            $currentPage = $this->cleanVar($_GET['page']);
+        } else {
+            $currentPage = 1;
+        }
         $postManager = new PostManager();
-        $posts = $postManager->listPosts();
+        $numberOfPosts = $postManager->getNumberOfPosts();
+        $postsPerPage = 3;
+        $pages = ceil($numberOfPosts / $postsPerPage);
+        $firstPost = (($currentPage - 1) * $postsPerPage);//((p-1)*x)+1
+        $posts = $postManager->listPosts($firstPost, $postsPerPage);
         require('View/listPostsView.php');
     }
     public function getPostShort($str)
@@ -86,5 +96,4 @@ class PostsController extends Controller
         $successMessage = 'Le chapitre est supprimé!';
         require('View/template.php');
     }
-    //TODO la méthode getLastPost avec GetPosts dedans... puis un tri (avec end()?)
 }

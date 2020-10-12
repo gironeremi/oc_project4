@@ -2,20 +2,22 @@
 namespace App\Model;
 class PostManager extends Manager
 {
-    public function listPosts()
+    public function listPosts($firstPost, $postsPerPages)
     {
         $db = $this->getDbConnect();
-        $req = $db->query('SELECT * FROM posts ORDER BY creation_date');
+        $req = $db->prepare('SELECT * FROM posts ORDER BY creation_date LIMIT :first_post, :posts_per_pages');
+        $req->bindValue(':first_post', $firstPost, \PDO::PARAM_INT);
+        $req->bindValue(':posts_per_pages', $postsPerPages, \PDO::PARAM_INT);
+        $req->execute();
         return $req;
-    }
 
+    }
     public function getPostById($postId)
     {
         $db = $this->getDbConnect();
         $req = $db->prepare('SELECT * FROM posts WHERE post_id = ?');
         $req->execute(array($postId));
-        $post = $req->fetch();
-        return $post;
+        return $post = $req->fetch();
     }
     public function getNextPost($postId)
     {
@@ -23,7 +25,6 @@ class PostManager extends Manager
         $req = $db->prepare('CALL getNextPost(?)');
         $req->execute(array($postId));
         return $req->fetchColumn();
-
     }
     public function getPreviousPost($postId)
     {
@@ -32,22 +33,18 @@ class PostManager extends Manager
         $req->execute(array($postId));
         return $req->fetchColumn();
     }
-    public function getLastPost() //pas encore mis en place
+    public function getNumberOfPosts()
     {
         $db = $this->getDbConnect();
-        $lastPost = $db->query('SELECT * FROM posts ORDER BY creation_date DESC LIMIT 1');
-        return $lastPost;
-        //possible fetch() par ici
+        $req = $db->query('SELECT COUNT(*) AS number_of_posts FROM posts');
+        return $numberOfPosts = (int) $req->fetchColumn();
     }
-
     public function addPost($postTitle, $postContent, $postPublishDate)
     {
         $db = $this->getDbConnect();
         $newPost = $db->prepare('INSERT INTO posts(title, content, publish_date) VALUES (?,?,?)');
-        $affectedLines = $newPost->execute(array($postTitle, $postContent, $postPublishDate));
-        return $affectedLines;
+        return $affectedLines = $newPost->execute(array($postTitle, $postContent, $postPublishDate));
     }
-
     public function deletePost($postId)
     {
         $db = $this->getDbConnect();
