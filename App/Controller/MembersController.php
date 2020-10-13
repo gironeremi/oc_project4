@@ -13,11 +13,9 @@ class MembersController extends Controller
             $email = $this->cleanVar($_POST['email']);
             $password = $this->cleanVar($_POST['password']);
             $passwordConfirm = $this->cleanVar($_POST['passwordConfirm']);
-            //Traitement du pseudonyme
             if(empty($memberName) || !preg_match('/^[a-zA-Z0-9_]+$/', $memberName)) {
                 $errors['memberName'] = "Ce pseudonyme n'est pas valide (alphanumérique)";
             }
-            //le pseudo est-il dejà pris? Vérifions dans la base de données.
             $memberExists = $membersManager->getMemberByName($memberName);
             if ($memberExists) {
                 $errors['memberName'] = 'Ce pseudonyme est dejà pris';
@@ -50,21 +48,16 @@ class MembersController extends Controller
         if (isset($_POST['memberName']) && isset($_POST['password'])) {
             //récupération et nettoyage des éléments
             $membersManager = new MembersManager();
-            $memberName = $this->cleanVar($_POST['memberName']);//
-            $password = $this->cleanVar($_POST['password']);//
-            //recherche du pseudo dans la base de données
+            $memberName = $this->cleanVar($_POST['memberName']);
+            $password = $this->cleanVar($_POST['password']);
             $memberExists = $membersManager->getMemberByName($memberName);
-            //Si pseudo pas trouvé, on renvoie une erreur (pseudo inconnu, tout ça)
             if (!$memberExists) {
                 $errors['memberName'] = "Ce pseudonyme n'existe pas.";
                 //sinon -> pseudo trouvé dans la base, on continue
             } elseif (!password_verify($password, $memberExists['password'])) {
                 $errors['password'] = "Mot de passe incorrect!";
             }
-            //si aucune erreur, connexion :)
             if (empty($errors)) {
-                //on pourrait factoriser le code, c'est le même que celui du dessus. Genre... une méthode LoginSuccess()
-                //session_start();
                 $_SESSION['memberName'] = $memberName;
                 $_SESSION['memberId'] = $memberExists['member_id'];
                 $_SESSION['isAdmin'] = $memberExists['is_admin'];
@@ -84,7 +77,7 @@ class MembersController extends Controller
     public function logout()
     {
         session_destroy();
-        unset($_SESSION['memberName']);//faut enlever tout le reste, eh!
+        unset($_SESSION['memberName']);
         $successMessage = "Vous êtes bien déconnecté.";
         require('View/template.php');
     }

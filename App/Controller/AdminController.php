@@ -1,7 +1,6 @@
 <?php
 namespace App\Controller;
 use App\Model\AdminManager;
-use App\Model\CommentManager;
 use App\Model\PostManager;
 class AdminController extends Controller
 {
@@ -13,7 +12,7 @@ class AdminController extends Controller
             $posts = $adminManager->listPosts();
             require('View/adminView.php');
         } else {
-            throw new \Exception('Accès administateur non autorisé!');
+            throw new \Exception('Accès non autorisé!');
         }
     }
     public function addPost()
@@ -30,7 +29,7 @@ class AdminController extends Controller
             if ($affectedLines === false) {
                 throw new \Exception('impossible d\'ajouter ce chapitre');
             } else {
-                $successMessage = "Le chapitre a bien été ajouté!";
+                $successMessage = "Le chapitre a été ajouté!";
                 require('View/template.php');
             }
         }
@@ -54,7 +53,7 @@ class AdminController extends Controller
         } else {
             $adminManager = new AdminManager();
             $adminManager->updatePost($postId, $postTitle, $postContent, $postPublishDate);
-            $successMessage = 'Le chapitre a bien été mis à jour!';
+            $successMessage = 'Le chapitre a été mis à jour!';
             require('View/template.php');
         }
     }

@@ -26,7 +26,7 @@ class CommentsController extends Controller
             $commentId = $_GET['comment_id'];
             $commentManager = new CommentManager();
             $commentManager->flagComment($commentId);
-            $successMessage = 'le commentaire a bien été signalé!';
+            $successMessage = 'le commentaire a été signalé!';
             require('View/template.php');
     }
 }

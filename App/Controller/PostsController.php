@@ -20,7 +20,6 @@ class PostsController extends Controller
     }
     public function getPostShort($str)
     {
-        //ici la méthode permettant de récupérer les articles raccourcis correctement.
         $contentExtract = mb_substr($str, 0, 180);
         $lastSpace = mb_strrpos($contentExtract,' ', 0);
         echo nl2br(mb_substr($str, 0, $lastSpace)). "...";

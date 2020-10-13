@@ -12,10 +12,10 @@
         } else {
             echo 'Jean Forteroche';
         }?></title>
-    <link href="public/css/style.css" rel="stylesheet" />
+    <link href="public/css/styles.css" rel="stylesheet" />
 </head>
 
-<body>
+<body id="page-top">
 <?php require('header.php'); ?>
 <?php if (!empty($successMessage)) {
 ?>
