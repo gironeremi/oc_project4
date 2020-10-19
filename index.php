@@ -1,10 +1,12 @@
 <?php
 session_start();
 require 'vendor/autoload.php';
+use App\Controller\ErrorsController;
 use App\Controller\Controller;
 use App\Controller\CommentsController;
 use App\Controller\PostsController;
 use App\Controller\MembersController;
+use App\Controller\AdminController;
 use App\Model\MembersManager;
 
 $action = "";
@@ -12,7 +14,7 @@ $controller = new Controller();
 $commentsController = new CommentsController();
 $postsController = new PostsController();
 $membersController = new MembersController();
-$adminController = new \App\Controller\AdminController();
+$adminController = new AdminController();
 $membersManager = new MembersManager();
 if (isset($_GET['action'])) {
     $action = $controller->cleanVar($_GET['action']);
@@ -69,6 +71,6 @@ try {
     }
 }
 catch(Exception $e) {
-    $error = new \App\Controller\ErrorsController();
+    $error = new ErrorsController();
     $error->error($e);
 }

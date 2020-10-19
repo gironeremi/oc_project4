@@ -1,32 +1,25 @@
 <?php $title = 'Accueil'; ?>
 
 <?php ob_start(); ?>
-<section class="d-flex flex-column justify-content-center align-items-center">
-    <h3>Tous les épisodes :</h3>
-    <div class="container">
-        <div>
-            <?php
-                foreach ($posts as $post) {
-            ?>
-                <div class="card mt-5 mb-5">
-                    <div class="card-header bg-secondary">
-                        <h3><?= $post['title'] ?></h3>
-                    </div>
-                    <div class="card-body">
-                        <p>
-                        <?php
-                            $this->getPostShort($post['content']);
-                        ?>
-                        </p>
-                    </div>
-                    <div ="card-footer bg-light">
-                        <a href="index.php?action=post&post_id=<?= $post['post_id'] ?>" class="btn btn-primary btn-block" role="button">Lire la suite</a>
-                    </div>
-                </div>
-            <?php
-                }
-            ?>
-        </div>
+
+    <section class="projects-section bg-light d-flex flex-column justify-content-center align-items-center" id="projects">
+    <h2 class="p-2">Liste des épisodes :</h2>
+    <div>
+        <?php
+            foreach ($posts as $post) {
+        ?>
+            <div class="card m-5 p-4 shadow p-3 mb-5 bg-white rounded">
+                <h3 class="card-title"><?= $post['title'] ?></h3>
+                <p class="card-text">
+                <?php
+                    $this->getPostShort($post['content']);
+                ?>
+                </p>
+                <a href="index.php?action=post&post_id=<?= $post['post_id'] ?>" class="btn btn-primary" role="button">Lire la suite</a>
+            </div>
+        <?php
+            }
+        ?>
     </div>
     <nav>
         <ul class="pagination">

@@ -19,11 +19,11 @@ if (!empty($errors)) { ?>
 <form action="" method="post">
     <div class="form-group">
         <label for="memberName">Pseudonyme</label>
-        <input type="text" name="memberName" class="form-control" />
+        <input type="text" name="memberName" class="form-control" maxlength="255"/>
     </div>
     <div class="form-group">
         <label for="email">Email</label>
-        <input type="text" name="email" class="form-control" />
+        <input type="email" name="email" class="form-control" />
     </div>
     <div class="form-group">
         <label for="password">Mot de Passe</label>

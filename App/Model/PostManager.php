@@ -8,7 +8,8 @@ class PostManager extends Manager
         $req = $db->prepare('SELECT * FROM posts ORDER BY creation_date LIMIT :first_post, :posts_per_pages');
         $req->bindValue(':first_post', $firstPost, \PDO::PARAM_INT);
         $req->bindValue(':posts_per_pages', $postsPerPages, \PDO::PARAM_INT);
-        return $req->execute();
+        $req->execute();
+        return $req;
     }
     public function getPostById($postId)
     {

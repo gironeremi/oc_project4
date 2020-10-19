@@ -46,7 +46,6 @@ class MembersController extends Controller
     public function login()
     {
         if (isset($_POST['memberName']) && isset($_POST['password'])) {
-            //récupération et nettoyage des éléments
             $membersManager = new MembersManager();
             $memberName = $this->cleanVar($_POST['memberName']);
             $password = $this->cleanVar($_POST['password']);

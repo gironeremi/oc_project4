@@ -36,9 +36,7 @@ if (isset($_SESSION['isAdmin']) && $_SESSION['isAdmin'] == 1) {
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#projects">Projects</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#signup">Contact</a></li>
+                <li class="nav nav-item"><a href="index.php?action=listPosts" class="nav-link">Épisodes</a></li>
                 <?php
                 if (isset($_SESSION['memberName']))
                 {?>
@@ -58,9 +56,19 @@ if (isset($_SESSION['isAdmin']) && $_SESSION['isAdmin'] == 1) {
         </div>
     </div>
 </nav>
-<header class="jumbotron text-center">
-    <h1>Jean FORTEROCHE</h1>
-    <h2>Billet simple pour l'Alaska</h2>
-    <!--<div><img src="../../public/images/hero.jpg" class="img-fluid" alt="paysage d'Alaska" /></div>-->
+<header class="masthead">
+    <div class="container h-100 d-flex flex-column align-items-center">
+        <div class="mx-auto text-center">
+            <h1 class="mx-auto my-0 text-uppercase">Billet simple pour l'Alaska</h1>
+            <h2 class="text-white-50 mx-auto mt-2 mb-5">Découvrez le nouveau roman de Jean Forteroche</h2>
+        </div>
+        <?php if (!empty($successMessage)) {
+            ?>
+            <div id="successMessage" class="col-8 alert alert-success alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <?= $successMessage ?>
+            </div>
+        <?php }
+        ?>
+    </div>
 </header>
-<!--Par ici, mettre une div qui peut recevoir des message Flash de session-->
