@@ -10,7 +10,7 @@
                 </p>
             </div>
         </div>
-        <img class="img-fluid" src="../public/images/book.jpg" alt="" />
+        <img class="img-fluid" src="../public/images/book.jpg" alt="livre ouvert" />
     </div>
 </section>
 <footer class="footer bg-black small text-center text-white-50">
