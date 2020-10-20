@@ -1,21 +1,27 @@
 <?php
-namespace App\;
+namespace App\Controller;
 use App\Model\PostManager, App\Model\CommentManager;
 class Controller
 {
     public function post()
     {
-        if (isset($_GET['id']) && $_GET['id'] > 0) {
+        $postId = intval($_GET['post_id']);
+        if ($postId> 0) {
             $postManager = new PostManager();
             $commentManager = new CommentManager();
-            $post = $postManager->getPost($_GET['id']);
-            $comments = $commentManager->getComments($_GET['id']);
-            require('view/frontend/postView.php');
+            $post = $postManager->getPostById($postId);
+            if (!empty($post)) {
+                $comments = $commentManager->listComments($postId);
+                $previousPostId = $postManager->getPreviousPost($postId);
+                $nextPostId = $postManager->getNextPost($postId);
+                require('View/postView.php');
+            } else {
+                throw new \Exception('aucun identifiant de billet envoyé.');
+            }
         } else {
-            throw new Exception('acucun identifiant de billet envoyé.');
+            throw new \Exception('l\'argument saisi n\'est pas un entier');
         }
     }
-
     public function cleanVar($str)
     {
         if (isset($str)) {

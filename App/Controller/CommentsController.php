@@ -1,25 +1,32 @@
 <?php
-namespace App\;
+namespace App\Controller;
 use App\Model\CommentManager;
 class CommentsController extends Controller
 {
     public function addComment()
     {
-        $postId = cleanVar($_GET['id']);
-        $author = cleanVar($_POST['author']);
-        $comment = cleanVar($_POST['comment']);
+        $postId = $this->cleanVar($_GET['id']);
+        $author = $this->cleanVar($_SESSION['memberId']);
+        $comment = $this->cleanVar($_POST['comment']);
         if ((isset($postId)) && $postId > 0) {
-            if (!empty($author) && !empty($comment)) {
+            if (!empty($comment)) {
                 $commentManager = new CommentManager();
-                $affectedLines = $commentManager->postComment($postId, $author, $comment);
+                $affectedLines = $commentManager->addComment($postId, $author, $comment);
                 if ($affectedLines === false) {
-                    throw new Exception('Impossible d\'ajouter le commentaire.');
+                    throw new \Exception('Impossible d\'ajouter le commentaire.');
                 } else {
-                    header('Location: index.php?action=post&id=' . $postId);
+                    $successMessage = 'Commentaire ajouté!';
+                    require('View/template.php');
                 }
-            } else {
-                throw new Exception('tous les champs ne sont pas remplis !');
             }
         }
+    }
+    public function flagComment()
+    {
+            $commentId = $_GET['comment_id'];
+            $commentManager = new CommentManager();
+            $commentManager->flagComment($commentId);
+            $successMessage = 'le commentaire a été signalé!';
+            require('View/template.php');
     }
 }

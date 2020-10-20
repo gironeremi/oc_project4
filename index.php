@@ -1,26 +1,76 @@
 <?php
+session_start();
 require 'vendor/autoload.php';
-use App\Controller\Controller, App\Controller\CommentsController, App\Controller\PostsController;
+use App\Controller\ErrorsController;
+use App\Controller\Controller;
+use App\Controller\CommentsController;
+use App\Controller\PostsController;
+use App\Controller\MembersController;
+use App\Controller\AdminController;
+use App\Model\MembersManager;
+
 $action = "";
+$controller = new Controller();
+$commentsController = new CommentsController();
+$postsController = new PostsController();
+$membersController = new MembersController();
+$adminController = new AdminController();
+$membersManager = new MembersManager();
 if (isset($_GET['action'])) {
-    $action = cleanVar($_GET['action']);
+    $action = $controller->cleanVar($_GET['action']);
 }
 try {
     switch ($action) {
         case 'listPosts':
-            listPosts();
+            $postsController->listPosts();
             break;
         case 'post':
-            post();
+            $controller->post();
+            break;
+        case 'addPost':
+            $adminController->addPost();
+            break;
+        case 'getPostEditor':
+            $adminController->getPostEditor();
+            break;
+        case 'updatePost':
+            $adminController->updatePost();
+            break;
+        case 'deletePost':
+            $adminController->deletePost();
             break;
         case 'addComment':
-            addComment();
+            $commentsController->addComment();
+            break;
+        case 'flagComment':
+            $commentsController->flagComment();
+            break;
+        case 'validateComment':
+            $adminController->validateComment();
+            break;
+        case 'deleteComment':
+            $adminController->deleteComment();
+            break;
+        case 'admin':
+            $adminController->admin();
+            break;
+        case 'login':
+            $membersController->login();
+            break;
+        case 'logout':
+            $membersController->logout();
+            break;
+        case 'register':
+            $membersController->register();
+            break;
+        case 'addMember':
+            $membersManager->addMember($memberName, $passwordHashed, $email);
             break;
         default:
-            listPosts();
+            $postsController->listPosts();
     }
 }
 catch(Exception $e) {
-    echo 'Erreur: ' . $e->getMessage();
-    require('view/errorView.php');
+    $error = new ErrorsController();
+    $error->error($e);
 }
