@@ -9,7 +9,18 @@ class AdminController extends Controller
         if ($_SESSION['isAdmin'] == 1) {
             $adminManager = new AdminManager();
             $flaggedComments = $adminManager->listFlaggedComments();
-            $posts = $adminManager->listPosts();
+            if (isset($_GET['page']) && !empty($_GET['page'])) {
+                $currentPage = $this->cleanVar($_GET['page']);
+            } else {
+                $currentPage = 1;
+            }
+            $postManager = new PostManager();
+            $numberOfPosts = $postManager->getNumberOfPosts();
+            $postsPerPage = 4;
+            $pages = ceil($numberOfPosts / $postsPerPage);
+            $firstPost = (($currentPage - 1) * $postsPerPage);
+            $posts = $postManager->listPosts($firstPost, $postsPerPage);
+            //$posts = $adminManager->listPosts();//remplacer par celui de postsController
             require('View/adminView.php');
         } else {
             throw new \Exception('Accès non autorisé!');
