@@ -17,7 +17,7 @@ ob_start(); ?>
         <?php
             if(!empty($nextPostId)) {
         ?>
-                <a href="index.php?action=post&post_id=<?= $nextPostId; ?>" class="btn btn-secondary btn-block col-md-8"><i class="fas fa-angle-right"></i> Chapitre suivant <i class="fas fa-angle-right"></i></a>
+                <a href="index.php?action=post&post_id=<?= $nextPostId; ?>" class="btn btn-secondary btn-block col-md-8"><i class="fas fa-angle-right"></i> épisode suivant <i class="fas fa-angle-right"></i></a>
         <?php
             }
         ?>

@@ -35,6 +35,23 @@
     <?php
         }
     ?>
+    <nav>
+        <ul class="pagination">
+            <li class="page-item <?php if($currentPage == 1) { echo "disabled";} ?>">
+                <a href="index.php?action=admin&page=<?= $currentPage - 1 ?>" class="page-link">Précédent</a>
+            </li>
+            <?php
+            for($page=1; $page<=$pages; $page++):
+                ?>
+                <li class="page-item <?php if($currentPage == $page){ echo "active"; }?>">
+                    <a href="index.php?action=admin&page=<?= $page ?>" class="page-link"><?= $page ?></a>
+                </li>
+            <?php endfor ?>
+            <li class="page-item <?php if($currentPage == $pages) { echo "disabled";} ?>">
+                <a href="index.php?action=admin&page=<?= $currentPage + 1 ?>" class="page-link">Suivant</a>
+            </li>
+        </ul>
+    </nav>
 </div>
 <?php $content = ob_get_clean(); ?>
 <?php require('template.php'); ?>
