@@ -18,7 +18,6 @@
 
 <body id="page-top">
 <?php require('header.php'); ?>
-<!-- ancien emplacement de $successMessage -->
 <?php if (!empty($content)) {
     echo $content;
 } ?>
