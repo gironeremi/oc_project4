@@ -9,20 +9,21 @@
             <ul class="navbar-nav ml-auto">
                 <li class="nav nav-item"><a href="index.php?action=listPosts" class="nav-link">Épisodes</a></li>
                 <?php
-                if (isset($_SESSION['memberName']))
-                {?>
-                    <li class="nav nav-item nav-link">Bienvenue <?= $_SESSION['memberName'] ?></li>
+                if (isset($_SESSION['memberName'])) {
+                    if (isset($_SESSION['isAdmin']) && $_SESSION['isAdmin'] == 1) {?>
+                        <li class="nav nav-item">
+                            <a href="index.php?action=admin" class="nav-link">Panneau d'administration</a>
+                        </li>
                     <?php
-                    if (isset($_SESSION['isAdmin']) && $_SESSION['isAdmin'] == 1) {
-                        echo '<li class="nav nav-item"><a href="index.php?action=admin" class="nav-link">' . 'Panneau d\'administration' . '</a></li>';
-                    }
-                    ?>
+                    }?>
+                    <li class="nav nav-item nav-link">Bienvenue <?= $_SESSION['memberName'] ?></li>
                     <li class="nav nav-item"><a href="index.php?action=logout" class="nav-link">Déconnexion</a></li>
-                <?php }
-                else {?>
+                    <?php
+                } else {?>
                     <li class="nav nav-item"><a href="index.php?action=register" class="nav-link">Inscription</a></li>
                     <li class="nav nav-item"><a href="index.php?action=login" class="nav-link">Connexion</a></li>
-                <?php } ?>
+                <?php
+                } ?>
             </ul>
         </div>
     </div>

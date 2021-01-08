@@ -21,13 +21,11 @@
       ?>
   >
     <div class="form-group">
-        <label for="postTitle">Titre de l'épisode : </label><input type="text" name="postTitle" class="form-control" value="
-        <?php
+        <label for="postTitle">Titre de l'épisode : </label><input type="text" name="postTitle" class="form-control" value="<?php
             if(!empty($post['title'])) {
                 echo $post['title'];
             }
-        ?>
-        "/>
+        ?>"/>
     </div>
 
     <label for="postContent">Contenu de l'épisode : </label><br />
